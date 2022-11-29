@@ -80,4 +80,21 @@ class Application
 
         return $this;
     }
+
+    /**
+     * Instanciate a new concrete class.
+     *
+     * @param string $concrete
+     * @param mixed $args
+     *
+     * @return Object the instance of the class
+     */
+    public static function make(string $concrete, mixed ...$args)
+    {
+        $reflector = new \ReflectionClass($concrete);
+
+        $instance = $reflector->newInstanceArgs($args);
+
+        return $instance;
+    }
 }

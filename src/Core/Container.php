@@ -215,13 +215,4 @@ class Container implements ContainerInterface
             call_user_func_array([$service, $callDefinition['method']], $arguments);
         }
     }
-
-    /**
-     * Returns the configs array
-     *
-     * @return array
-     */
-    public function getConfig() {
-        return $this->configs;
-    }
 }

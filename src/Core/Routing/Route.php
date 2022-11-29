@@ -2,19 +2,19 @@
 
 namespace App\Core\Routing;
 
-use App\Core\Contracts\Http\ControllerContract;
+use App\Core\Application;
 
 class Route
 {
-    private function __construct(
-        protected ControllerContract $controller,
+    public function __construct(
+        protected string $controller,
         protected string $handle,
         protected string $method
     ) 
     {}
 
     public function getController() {
-        return $this->controller;
+        return Application::make($this->controller);
     }
 
     public function getHandle()
