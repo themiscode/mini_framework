@@ -45,7 +45,8 @@ class DatabaseService
     )
     {}
 
-    public function where(string $column, string $operator, mixed $value) {
+    public function where(string $column, string $operator, mixed $value) 
+    {
         $this->wheres[] = new WhereStatement(
                 $column . $operator . (is_string($value) ? "'$value'" : $value)
             );
@@ -53,7 +54,8 @@ class DatabaseService
         return $this;
     }
 
-    public function orWhere(string $column, string $operator, mixed $value) {
+    public function orWhere(string $column, string $operator, mixed $value) 
+    {
         $this->orWheres[] = new OrWhereStatement(
                 $column . $operator . (is_string($value) ? "'$value'" : $value)
             );
@@ -61,7 +63,8 @@ class DatabaseService
         return $this;
     }
 
-    public function whereIn(string $column, array $values) {
+    public function whereIn(string $column, array $values) 
+    {
         $this->whereIns[] = new WhereInStatement(
                 $column . ' IN ' . '(' . implode(',', $values) . ')'
             );
@@ -69,7 +72,8 @@ class DatabaseService
         return $this;
     }
 
-    public function orWhereIn(string $column, array $values) {
+    public function orWhereIn(string $column, array $values) 
+    {
         $this->orWhereIns[] = new OrWhereInStatement(
                 $column . ' IN ' . '(' . implode(',', $values) . ')'
             );
@@ -77,7 +81,8 @@ class DatabaseService
         return $this;
     }
 
-    public function join(string $table, string $alias = null, string $onClause = null) {
+    public function join(string $table, string $alias = null, string $onClause = null) 
+    {
         $join = "JOIN $table";
 
         $join = $this->addAliasAndOnClauseToJoin($join, $alias, $onClause);
@@ -87,7 +92,8 @@ class DatabaseService
         return $this;
     }
 
-    public function leftJoin(string $table, string $alias, string $onClause = null) {
+    public function leftJoin(string $table, string $alias, string $onClause = null) 
+    {
         $join = "LEFT JOIN $table";
 
         $join = $this->addAliasAndOnClauseToJoin($join, $alias, $onClause);
@@ -97,7 +103,8 @@ class DatabaseService
         return $this;
     }
 
-    public function rightJoin(string $table, string $alias, string $onClause = null) {
+    public function rightJoin(string $table, string $alias, string $onClause = null) 
+    {
         $join = "RIGHT JOIN $table";
 
         $join = $this->addAliasAndOnClauseToJoin($join, $alias, $onClause);
@@ -120,7 +127,8 @@ class DatabaseService
         return $join;
     }
 
-    public function table(string $table) {
+    public function table(string $table) 
+    {
         $this->table = $table;
 
         return $this;
@@ -134,7 +142,8 @@ class DatabaseService
         return $this;
     }
 
-    public function insert(array $fields_values) {
+    public function insert(array $fields_values) 
+    {
         $this->operationCode = static::INSERT;
         $this->fields_values = $fields_values;
 
@@ -165,7 +174,8 @@ class DatabaseService
         return $result;
     }
 
-    public function execute() {
+    public function execute() 
+    {
         $query = $this->prepareQuery();
 
         $result = $this->connect()->dbConnection->query($query);
@@ -179,7 +189,8 @@ class DatabaseService
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
-    protected function prepareQuery() {
+    protected function prepareQuery() 
+    {
         $operation = null;
         
         if ($this->operationCode === static::UPDATE) {
@@ -205,7 +216,8 @@ class DatabaseService
         return $expression;
     }
 
-    protected function compileWheres() {
+    protected function compileWheres() 
+    {
         return (
             new WheresBuilder(
                 $this->wheres, 
@@ -217,11 +229,13 @@ class DatabaseService
         ->unifyWheres();
     }
 
-    protected function compileJoins() {
+    protected function compileJoins() 
+    {
         return (new JoinsBuilder($this->joins))->unifyJoins();
     }
 
-    protected function connect() {
+    protected function connect() 
+    {
         $connection = new \mysqli(
             $this->dbHost,
             $this->dbUser,
@@ -240,7 +254,8 @@ class DatabaseService
         return $this;
     }
 
-    protected function reset() {
+    protected function reset() 
+    {
         $this->dbConnection->close();
 
         $this->wheres = [];

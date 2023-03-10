@@ -81,7 +81,8 @@ class Container implements ContainerInterface
      *
      * @return boolean
      */
-    public function has(string $id): bool { 
+    public function has(string $id): bool 
+    { 
         return isset($this->services[$id]);
     }
 

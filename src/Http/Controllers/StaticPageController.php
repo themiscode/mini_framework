@@ -8,6 +8,6 @@ class StaticPageController implements ControllerContract
 {
     public function home($request)
     {
-
+        return 1;
     }
 }

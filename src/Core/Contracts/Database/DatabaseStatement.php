@@ -6,7 +6,8 @@ abstract class DatabaseStatement
 {
     protected string $value;
     
-    public function __construct(string $value) {
+    public function __construct(string $value) 
+    {
         $this->value = $value;
     }
 
@@ -15,7 +16,8 @@ abstract class DatabaseStatement
         return $this->value;
     }
     
-    public function __toString() {
+    public function __toString() 
+    {
         return (string) $this->getValue();
     }
 }

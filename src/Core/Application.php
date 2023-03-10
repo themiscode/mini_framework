@@ -23,7 +23,8 @@ class Application
      *
      * @return \App\Core\Application the application instance
      */
-    public static function getInstance() {
+    public static function getInstance() 
+    {
         if (static::$instance == null) {
             static::$instance = new static();
         }
@@ -68,7 +69,7 @@ class Application
         }
 
         $services = include root_path() . '/src/Core/container_config/services.php';
-        $parameters = include root_path() . '/src/Core/container_config/parameters.php';;
+        $parameters = include root_path() . '/src/Core/container_config/parameters.php';
 
         $this->container = new Container(
             $services, 

@@ -11,7 +11,8 @@ class Router
 
     protected array $routes;
 
-    public function __construct() {
+    public function __construct() 
+    {
         $this->routes = [];
     }
 

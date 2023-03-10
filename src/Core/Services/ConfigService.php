@@ -8,7 +8,8 @@ class ConfigService implements ConfigServiceContract
 {
     protected array $configs;
 
-    public function __construct(string $configPath) {
+    public function __construct(string $configPath) 
+    {
         $configs = [];
 
         if (!$configPath || !is_dir($configPath)) {
@@ -28,17 +29,20 @@ class ConfigService implements ConfigServiceContract
         $this->configs = $configs;
     }
 
-    public function get(string $key, $default = null) {
+    public function get(string $key, $default = null) 
+    {
         return is_null(($value = $this->parseArray($key)))
             ? $default
             : $value;
     }
 
-    public function has(string $key) {
+    public function has(string $key) 
+    {
         return is_null($this->parseArray($key));
     }
 
-    protected function parseArray(string $key) {
+    protected function parseArray(string $key) 
+    {
         $tokens = explode('.', $key);
 
         $context = $this->configs;

@@ -14,7 +14,8 @@ class UpdateOperation extends DatabaseOperation {
         $this->handleOperationValue();
     }
 
-    protected function handleOperationValue() {
+    protected function handleOperationValue() 
+    {
         $updateString = 'UPDATE ' . $this->table . ' SET ';
 
         if (empty($this->fields_values)) {

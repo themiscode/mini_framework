@@ -6,7 +6,8 @@ class JoinsBuilder
 {
     public function __construct(protected array $joins) {}
 
-    public function unifyJoins() {
+    public function unifyJoins() 
+    {
         $length = count($this->joins);
 
         if (!$length) {

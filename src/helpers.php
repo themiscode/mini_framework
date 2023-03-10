@@ -27,7 +27,8 @@ function application(string $serviceName = '')
  *
  * @return \App\Core\Services\ConfigService
  */
-function config() {
+function config() 
+{
     return application('config');
 }
 
@@ -36,7 +37,8 @@ function config() {
  *
  * @return \App\Core\Services\DatabaseService
  */
-function database() {
+function database() 
+{
     return application('database');
 }
 

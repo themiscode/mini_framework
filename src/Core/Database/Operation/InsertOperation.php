@@ -13,7 +13,8 @@ class InsertOperation extends DatabaseOperation {
     {
         $this->handleOperationValue();
     }
-    protected function handleOperationValue() {
+    protected function handleOperationValue() 
+    {
         $insertString = 'INSERT INTO ' . $this->table . ' ';
 
         if (empty($this->fields_values)) {

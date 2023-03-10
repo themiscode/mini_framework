@@ -13,7 +13,8 @@ class Route
     ) 
     {}
 
-    public function getController() {
+    public function getController() 
+    {
         return Application::make($this->controller);
     }
 

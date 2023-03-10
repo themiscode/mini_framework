@@ -10,7 +10,8 @@ class DeleteOperation extends DatabaseOperation {
         $this->handleOperationValue();
     }
 
-    protected function handleOperationValue() {
+    protected function handleOperationValue() 
+    {
         $this->value = 'DELETE FROM ' . $this->table;
     }
 }

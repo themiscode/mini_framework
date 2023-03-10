@@ -28,7 +28,8 @@ class WheresBuilder
         );
     }
 
-    protected function stringifyWheresArray(array $wheresArray) {
+    protected function stringifyWheresArray(array $wheresArray) 
+    {
         $length = count($wheresArray);
 
         if (!$length) {

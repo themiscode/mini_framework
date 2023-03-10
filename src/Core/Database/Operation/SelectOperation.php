@@ -13,7 +13,8 @@ class SelectOperation extends DatabaseOperation {
         $this->handleOperationValue();
     }
 
-    protected function handleOperationValue() {
+    protected function handleOperationValue() 
+    {
         $this->value = 'SELECT ' 
             . (!empty($this->selects) ? implode(',', $this->selects) : '*') 
             . ' FROM '

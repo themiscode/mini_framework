@@ -8,11 +8,13 @@ abstract class DatabaseOperation
 
     abstract protected function handleOperationValue();
 
-    public function getValue() {
+    public function getValue() 
+    {
         return $this->value;
     }
     
-    public function __toString() {
+    public function __toString() 
+    {
         return (string) $this->getValue();
     }
 }
