@@ -3,17 +3,17 @@
 namespace App\Core\Routing;
 
 use App\Core\Exceptions\RouterException;
+use App\Core\Http\Request;
 
 class Router
 {
-    public const GET = 'GET';
-    public const POST = 'POST';
-
     protected array $routes;
+    protected Request $request;
 
-    public function __construct() 
+    public function __construct(Request $request) 
     {
         $this->routes = [];
+        $this->request = $request;
     }
 
     public function collectRoutes(array $routeFiles)
@@ -31,7 +31,7 @@ class Router
 
     public function resolveRoute()
     {
-
+        
     }
 
     public function executeRequest()

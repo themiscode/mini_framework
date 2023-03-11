@@ -51,3 +51,16 @@ function root_path()
 {
     return $_SERVER['DOCUMENT_ROOT'] . '/..';
 }
+
+/**
+ * Dumps the data passed and exits.
+ * Used for debuging.
+ *
+ * @return string
+ */
+function dd($data)
+{
+    var_dump($data);
+
+    die;
+}

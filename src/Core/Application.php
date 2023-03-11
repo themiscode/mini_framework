@@ -68,6 +68,8 @@ class Application
             return;
         }
 
+        $this->started = true;
+
         $services = include root_path() . '/src/Core/container_config/services.php';
         $parameters = include root_path() . '/src/Core/container_config/parameters.php';
 
@@ -77,9 +79,10 @@ class Application
             $this->bindings, 
         );
 
-        $this->started = true;
+        $router = $this->container->get('router');
 
-        return $this;
+        return '';
+        // return $this;
     }
 
     /**

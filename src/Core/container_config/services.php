@@ -1,7 +1,8 @@
 <?php
 
-use App\Core\Contracts\Generic;
+use App\Core\Http\Request;
 use App\Core\References\ParameterReference;
+use App\Core\References\ServiceReference;
 use App\Core\Routing\Router;
 use App\Core\Services\ConfigService;
 use App\Core\Services\DatabaseService;
@@ -23,8 +24,14 @@ return [
             new ParameterReference('config.path'),
         ],
     ],
+    'request' => [
+        'class' => Request::class,
+    ],
     'router' => [
         'class' => Router::class,
+        'arguments' => [
+            new ServiceReference('request'),
+        ],
         'calls' => [
             [
                 'method' => 'collectRoutes',
