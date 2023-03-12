@@ -13,9 +13,7 @@ return [
     ],
     'router' => [
         'collectRoutes' => [
-            'routeFiles' => [
-                root_path() . '/src/routes/static_pages.php',
-            ],
+            'routesDir' => root_path() . '/src/routes',
         ],
     ],
 ];

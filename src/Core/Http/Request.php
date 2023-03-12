@@ -10,6 +10,8 @@ class Request
 {
     public const GET = 'GET';
     public const POST = 'POST';
+    public const HTTP_SECURE = 'https://';
+    public const HTTP_UNSECURE = 'http://';
 
     public function contentType()
     {
@@ -57,5 +59,20 @@ class Request
         }
 
         return $_REQUEST;
+    }
+
+    public function httpHost()
+    {
+        return $_SERVER['HTTP_HOST'];
+    }
+
+    public function getHttpSchema()
+    {
+        if ($_SERVER['HTTPS'] === 'on') {
+            return static::HTTP_SECURE;
+        }
+        else {
+            return static::HTTP_UNSECURE;
+        }
     }
 }

@@ -79,10 +79,11 @@ class Application
             $this->bindings, 
         );
 
-        $router = $this->container->get('router');
+        $this->container->get('router')
+            ->resolveRoute()
+            ->executeRequest();
 
-        return '';
-        // return $this;
+        exit;
     }
 
     /**

@@ -36,7 +36,7 @@ return [
             [
                 'method' => 'collectRoutes',
                 'arguments' => [
-                    new ParameterReference('router.collectRoutes.routeFiles'),
+                    new ParameterReference('router.collectRoutes.routesDir'),
                 ],
             ],
         ],

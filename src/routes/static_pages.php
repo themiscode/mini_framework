@@ -8,8 +8,16 @@ use App\Http\Controllers\StaticPageController;
 return [
     '/' => Application::make(
         Route::class, 
-        StaticPageController::class, 
-        'home', 
-        Request::GET
+        StaticPageController::class, // Controller to pass request to
+        'home', // Method called inside the controller
+        Request::GET, // The request method
+        'home' // The route name
+    ),
+    '/myroute' => Application::make(
+        Route::class, 
+        StaticPageController::class, // Controller to pass request to
+        'myroute', // Method called inside the controller
+        Request::GET, // The request method
+        'myroute' // The route name
     ),
 ];
